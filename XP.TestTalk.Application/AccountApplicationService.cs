@@ -19,7 +19,11 @@ namespace XP.TestTalk.Application
         }
         public async Task<int> CreateAccountAsync(decimal initialFunds)
         {
-            return await _accountRepository.CreateAccountAsync(initialFunds);
+            if (initialFunds < 100)
+                return 0;
+
+            var customerCode = await _accountRepository.CreateAccountAsync(initialFunds);
+            return customerCode;
         }
 
         public async Task DepositAsync(int customerCode, decimal value)

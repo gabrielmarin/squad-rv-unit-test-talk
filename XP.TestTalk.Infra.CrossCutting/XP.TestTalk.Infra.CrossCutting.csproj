@@ -64,9 +64,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\XP.TestTalk.Application\XP.TestTalk.Application.csproj">
       <Project>{65E32D85-387C-4EDC-8840-D46EBD83076F}</Project>
       <Name>XP.TestTalk.Application</Name>
@@ -79,6 +76,9 @@
       <Project>{5A8F6AD1-C2B0-491B-A901-401329C6CBC2}</Project>
       <Name>XP.TestTalk.Infra.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -42,10 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application\IAccountApplicationService.cs" />
+    <Compile Include="Application\IOrderApplicationService.cs" />
+    <Compile Include="Application\IStocksApplicationService.cs" />
     <Compile Include="Entities\AccountEntity.cs" />
     <Compile Include="Entities\StockPositionEntity.cs" />
     <Compile Include="Entities\StocksEntity.cs" />
     <Compile Include="Infra\IAccountRepository.cs" />
+    <Compile Include="Infra\IOrderRepository.cs" />
+    <Compile Include="Infra\IStocksRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

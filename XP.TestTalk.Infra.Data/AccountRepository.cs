@@ -13,16 +13,33 @@ namespace XP.TestTalk.Infra.Data
         public async Task<int> CreateAccountAsync(decimal initialFunds)
         {
             await Task.Delay(new Random().Next(100, 1001));
-            var customerCode = new Random().Next();
+            var customerCode = new Random().Next(1, 101);
             DbMock.CustomerAccounts.Add(customerCode, new AccountEntity { CustomerCode = customerCode, AccountBalance = initialFunds });
             return customerCode;
         }
 
-        public async Task DepositAsync(int customerCode, decimal value)
+        public async Task UpdateAsync(AccountEntity entity)
+        {
+            await Task.Delay(new Random().Next(100, 1001));
+            if (DbMock.CustomerAccounts.TryGetValue(entity.CustomerCode, out var account))
+                account = entity;
+        }
+
+        public async Task<AccountEntity> FindAsync(int customerCode)
         {
             await Task.Delay(new Random().Next(100, 1001));
             if (DbMock.CustomerAccounts.TryGetValue(customerCode, out var account))
-                account.AccountBalance += value;
+            {
+                return account;
+            }
+
+            return null;
+        }
+
+        public async Task<IEnumerable<AccountEntity>> ListAllAsync()
+        {
+            await Task.Delay(new Random().Next(100, 1001));
+            return DbMock.CustomerAccounts.Select(x => x.Value).ToList();
         }
     }
 }

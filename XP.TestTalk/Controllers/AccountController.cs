@@ -33,6 +33,21 @@ namespace XP.TestTalk.Controllers
             return Ok();
         }
 
+        [Route("{customerCode:int}"), HttpGet]
+        public async Task<IHttpActionResult> Get(int customerCode)
+        {
+            var account = await _accountApplicationService.Find(customerCode);
+            return Ok(account);
+        }
+
+        [Route(""), HttpGet]
+        public async Task<IHttpActionResult> Get()
+        {
+            var accounts = await _accountApplicationService.ListAll();
+            return Ok(accounts);
+        }
+
+
 
     }
 }

@@ -1,10 +1,4 @@
 ﻿using SimpleInjector;
-using SimpleInjector.Packaging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using XP.TestTalk.Application;
 using XP.TestTalk.Domain.Application;
 using XP.TestTalk.Domain.Infra;
@@ -18,6 +12,11 @@ namespace XP.TestTalk.Infra.CrossCutting
         {
             container.Register<IAccountRepository, AccountRepository>();
             container.Register<IAccountApplicationService, AccountApplicationService>();
+
+            container.Register<IStocksRepository, StocksRepository>();
+            container.Register<IStocksApplicationService, StocksApplicationService>();
+
+            container.Register<IOrderApplicationService, OrderApplicationService>();
         }
     }
 }

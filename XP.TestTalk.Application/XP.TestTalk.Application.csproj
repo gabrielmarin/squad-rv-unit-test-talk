@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountApplicationService.cs" />
+    <Compile Include="OrderApplicationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StocksApplicationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XP.TestTalk.Domain\XP.TestTalk.Domain.csproj">

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using XP.TestTalk.Domain.Application;
+using XP.TestTalk.Domain.Entities;
 using XP.TestTalk.Domain.Infra;
 
 namespace XP.TestTalk.Application
@@ -23,7 +24,19 @@ namespace XP.TestTalk.Application
 
         public async Task DepositAsync(int customerCode, decimal value)
         {
-            await _accountRepository.DepositAsync(customerCode, value);
+            var accountEntity = await _accountRepository.FindAsync(customerCode);
+            accountEntity.AccountBalance += value;
+            await _accountRepository.UpdateAsync(accountEntity);            
+        }
+
+        public async Task<AccountEntity> Find(int customerCode)
+        {
+            return await _accountRepository.FindAsync(customerCode);
+        }
+
+        public async Task<IEnumerable<AccountEntity>> ListAll()
+        {
+            return await _accountRepository.ListAllAsync();
         }
     }
 }
